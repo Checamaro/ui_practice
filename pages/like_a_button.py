@@ -6,7 +6,7 @@ result_selector = (By.ID, 'result-text')
 
 class LikeAButtonPage(BasePage):
     def __init__(self, browser):
-        super(). __init__(browser)
+        super().__init__(browser)
 
     def open(self):
         self.browser.get('https://www.qa-practice.com/elements/button/like_a_button ')
@@ -14,9 +14,10 @@ class LikeAButtonPage(BasePage):
     @property
     def button(self):
         return self.find(button_selector)
+
     @property
     def button_is_displayed(self):
-        return self.button_is_displayed()
+        return self.button.is_displayed()
 
     def button_click(self):
         self.button.click()
@@ -28,4 +29,3 @@ class LikeAButtonPage(BasePage):
     @property
     def result_text(self):
         return self.result.text
-
