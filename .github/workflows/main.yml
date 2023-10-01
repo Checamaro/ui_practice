@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Download and install ChromeDriver
+      run: |
+        Invoke-WebRequest -Uri 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE' -OutFile chromedriver_version.txt
+        $chromedriver_version = Get-Content chromedriver_version.txt
+        Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/$chromedriver_version/chromedriver_win32.zip" -OutFile chromedriver.zip
+        Expand-Archive -Path chromedriver.zip -DestinationPath $env:USERPROFILE\.cache
+        Copy-Item -Path $env:USERPROFILE\.cache\chromedriver.exe -Destination $env:USERPROFILE\.cache\chromedriver
+        $env:PATH += ";$env:USERPROFILE\.cache"
+      env:
+        VERSION: "LATEST"
+
+    - name: Run tests
+      run: pytest
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: pytest_report
