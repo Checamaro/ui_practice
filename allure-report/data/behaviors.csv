@@ -1,0 +1,5 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","Like a button","existence","0","0","1","0","0"
+"","Simple_button","existence","0","0","1","0","0"
+"","Like a button","click_ability","0","0","1","0","0"
+"","Simple_button","click_ability","1","0","0","0","0"

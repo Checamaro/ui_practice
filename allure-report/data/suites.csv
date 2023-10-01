@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Oct 01 15:15:40 MSK 2023","Sun Oct 01 15:15:42 MSK 2023","1724","tests","test_like_a_button_page","","","","test_button_2_exist",""
+"passed","Sun Oct 01 15:15:51 MSK 2023","Sun Oct 01 15:15:52 MSK 2023","1613","tests","test_simple_button_page","","","","test_button_1_exist",""
+"passed","Sun Oct 01 15:15:45 MSK 2023","Sun Oct 01 15:15:47 MSK 2023","1923","tests","test_like_a_button_page","","","","test_button_2_clicked",""
+"failed","Sun Oct 01 15:15:56 MSK 2023","Sun Oct 01 15:15:58 MSK 2023","2054","tests","test_simple_button_page","","","","test_button_1_clicked",""
